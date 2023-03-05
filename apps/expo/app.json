@@ -28,6 +28,7 @@
       "package": "com.dev-hype.dev-hype"
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/favicon.png"
     },
     "extra": {

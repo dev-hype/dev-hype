@@ -46,7 +46,6 @@ To see debug output to verify the compiler, add `// debug` as a comment to the t
 
 - Expo local dev: `yarn native`
 
-
 ## Developing
 
 We've added `packages/ui` to show an example of [building your own design system](https://tamagui.dev/docs/guides/design-systems).
@@ -55,7 +54,7 @@ We've added `packages/ui` to show an example of [building your own design system
 
 Note we're following the [design systems guide](https://tamagui.dev/docs/guides/design-systems) and creating our own package for components.
 
-See `packages/ui` named `@my/ui` for how this works.
+See `packages/ui` named `@dev-hype/ui` for how this works.
 
 ## 🆕 Add new dependencies
 
@@ -83,7 +82,7 @@ yarn
 
 You can also install the native library inside of `packages/app` if you want to get autoimport for that package inside of the `app` folder. However, you need to be careful and install the _exact_ same version in both packages. If the versions mismatch at all, you'll potentially get terrible bugs. This is a classic monorepo issue. I use `lerna-update-wizard` to help with this (you don't need to use Lerna to use that lib).
 
-You may potentially want to have the native module transpiled for the next app. If you get error messages with ```Cannot use import statement outside a module```, you may need to use `transpilePackages` in your `next.config.js` and add the module to the array there.
+You may potentially want to have the native module transpiled for the next app. If you get error messages with `Cannot use import statement outside a module`, you may need to use `transpilePackages` in your `next.config.js` and add the module to the array there.
 
 ### Deploying to Vercel
 
