@@ -4,10 +4,11 @@ import '@tamagui/font-inter/css/700.css'
 import 'raf/polyfill'
 
 import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme'
-import { Provider } from 'app/provider'
 import Head from 'next/head'
 import React, { startTransition } from 'react'
 import type { SolitoAppProps } from 'solito'
+
+import { Provider } from 'app/provider'
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
@@ -17,14 +18,21 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
         <meta name="description" content="Tamagui, Solito, Expo & Next.js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider>
+
+      <RootProvider pageProps={pageProps}>
         <Component {...pageProps} />
-      </ThemeProvider>
+      </RootProvider>
     </>
   )
 }
 
-function ThemeProvider({ children }: { children: React.ReactNode }) {
+function RootProvider({
+  children,
+  pageProps,
+}: {
+  children: React.ReactNode
+  pageProps: SolitoAppProps['pageProps']
+}) {
   const [theme, setTheme] = useRootTheme()
 
   return (
@@ -35,7 +43,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
         })
       }}
     >
-      <Provider disableRootThemeClass defaultTheme={theme}>
+      <Provider disableRootThemeClass defaultTheme={theme} pageProps={pageProps}>
         {children}
       </Provider>
     </NextThemeProvider>

@@ -1,17 +1,27 @@
-import config from '../tamagui.config'
 import { TamaguiProvider, TamaguiProviderProps } from '@dev-hype/ui'
 import { useColorScheme } from 'react-native'
 
-export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
+import AuthProvider from './auth'
+
+import config from '../tamagui.config'
+
+export function Provider({
+  children,
+  pageProps,
+  ...rest
+}: Omit<TamaguiProviderProps, 'config'> & { pageProps: any }) {
   const scheme = useColorScheme()
+
   return (
-    <TamaguiProvider
-      config={config}
-      disableInjectCSS
-      defaultTheme={scheme === 'dark' ? 'dark' : 'light'}
-      {...rest}
-    >
-      {children}
-    </TamaguiProvider>
+    <AuthProvider {...pageProps}>
+      <TamaguiProvider
+        config={config}
+        disableInjectCSS
+        defaultTheme={scheme === 'dark' ? 'dark' : 'light'}
+        {...rest}
+      >
+        {children}
+      </TamaguiProvider>
+    </AuthProvider>
   )
 }
