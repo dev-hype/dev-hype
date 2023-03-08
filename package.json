@@ -33,5 +33,8 @@
     "turbo": "^1.4.2",
     "typescript": "^4.7.4"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.4.1",
+  "prisma": {
+    "schema": "./packages/db/prisma/schema.prisma"
+  }
 }
