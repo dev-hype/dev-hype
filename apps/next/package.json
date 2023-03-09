@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "yarn with-env next dev",
-    "build": "yarn with-env next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "with-env": "dotenv -e ../../.env --",
