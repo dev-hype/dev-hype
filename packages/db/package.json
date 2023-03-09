@@ -1,6 +1,19 @@
 {
   "name": "@dev-hype/db",
   "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "build": "tsc",
+    "prisma:generate": "yarn with-env prisma generate",
+    "prisma:studio": "yarn with-env prisma studio",
+    "prisma:migrate": "yarn with-env prisma migrate",
+    "prisma:migrate:dev": "yarn with-env prisma migrate dev",
+    "clean": "rm -rf .turbo node_modules",
+    "with-env": "dotenv -e ../../.env --",
+    "dev": "yarn with-env prisma studio --port 5556 --browser=none",
+    "db-push": "yarn with-env prisma db push",
+    "db-generate": "yarn with-env prisma generate",
+    "type-check": "tsc --noEmit"
+  },
   "devDependencies": {
     "@types/node": "^18.14.6",
     "prisma": "^4.11.0",
@@ -8,6 +21,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@prisma/client": "^4.11.0"
+    "@prisma/client": "^4.11.0",
+    "dotenv-cli": "^7.0.0"
   }
 }

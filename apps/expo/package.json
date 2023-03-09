@@ -5,15 +5,15 @@
   "private": true,
   "scripts": {
     "start": "expo start -c",
-    "android": "TAMAGUI_TARGET=native yarn expo run:android",
-    "ios": "TAMAGUI_TARGET=native yarn expo run:ios",
-    "web": "TAMAGUI_TARGET=web yarn expo start --web",
-    "eject": "expo eject"
+    "android": "yarn expo run:android",
+    "ios": "yarn expo run:ios",
+    "web": "yarn expo start --web",
+    "eject": "expo eject",
+    "clean": "rm -rf .expo .turbo node_modules",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.9",
-    "@dev-hype/ui": "*",
-    "app": "*",
     "babel-plugin-module-resolver": "^4.1.0",
     "expo": "^48.0.5",
     "expo-constants": "~14.2.1",
@@ -38,7 +38,7 @@
     "@babel/core": "^7.17.9",
     "@expo/metro-config": "^0.3.21",
     "@react-native-community/eslint-config": "^3.2.0",
-    "@tamagui/babel-plugin": "1.6.3",
+    "@types/react": "^18.0.28",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",
     "eslint": "^8.35.0",
