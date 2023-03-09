@@ -8,7 +8,6 @@
   "scripts": {
     "web": "turbo run dev --filter next-app",
     "native": "cd apps/expo && yarn start",
-    "postinstall": "turbo build",
     "build": "turbo build",
     "clean": "turbo clean",
     "db-push": "turbo db-push",
